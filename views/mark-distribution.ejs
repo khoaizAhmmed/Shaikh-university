@@ -1,0 +1,87 @@
+<div class="l-form">
+    <form action="/mark-distribution" method="POST" class="form">
+      <h1 class="form__title">Marks Distribution </h1>
+
+      <div class="form__div">
+        <select required onchange="mySemester()" 
+        class="form__input select-box"
+         name="semesterID" 
+         id="mysemester" >
+          <option value="" >Select Semester</option>
+          <% semester && semester.map(s=>{ %>
+            <option <%= semesterID == s.semester_id && 'selected' %>  value="<%= s.semester_id %>"><%= s.semester_name %></option>
+            <% }) %>
+          <label for="" class="form__label">Select Subject</label>
+        </select>
+      </div>
+      
+      <div class="form__div">
+        <select required onchange="creditGet(event)" class="form__input select-box" name="subjectCode"  >
+          <% if(semBysub === null || semBysub === undefined ){ %>
+            <option value="">Select Subject</option>
+            
+            <% }else{ %>
+              <option  value="">Select Subject</option>
+              <% semBysub.map(sub=>{ %>
+            <option  value="<%= sub.subject_code %>"><%= sub.subject_name %> <span>( <%= sub.subject_code %> ) </span>  </option>
+            <% }) %> <% } %>
+          <label for="" class="form__label">Select Subject</label>
+        </select>
+      </div>
+
+        <input type="hidden"  id="getCreditShow" value="" name="">
+        <div class="">
+          Written
+          <hr />
+          <div class="form__div">
+            <input onchange="myCal()" type="text" class="form__input" placeholder=" " name="wt" id="Wpass" required />
+            <label for="" class="form__label">Total Marks</label>
+          </div>
+          <div class="form__div">
+            <input type="text" class="form__input" placeholder=" " name="wp"  required />
+            <label for="" class="form__label">Pass Marks</label>
+          </div>
+        </div>
+        <div class="">
+          Viva
+          <hr />
+          <div class="form__div">
+            <input  onchange="myCal()"  type="text" class="form__input" name="vt" placeholder=" " id="Vpass" required />
+            <label for="" class="form__label">Total Marks</label>
+          </div>
+          <div class="form__div">
+            <input type="text" class="form__input" placeholder=" " name="vp" required />
+            <label for="" class="form__label">Pass Marks</label>
+          </div>
+        </div>
+        <div class="">
+          Assignment
+          <hr />
+          <div class="form__div">
+            <input  onchange="myCal()"  type="text" class="form__input" name="at" placeholder=" " id="Apass" required />
+            <label for="" class="form__label">Total Marks</label>
+          </div>
+          <div class="form__div">
+            <input type="text" class="form__input" placeholder=" " name="ap"  required />
+            <label for="" class="form__label">Pass Marks</label>
+          </div>
+        </div>
+        <div class="">
+          Quiz
+          <hr />
+          <div class="form__div">
+            <input  onchange="myCal()"  type="text" class="form__input" name="qt" placeholder=" " id="Qpass" required />
+            <label for="" class="form__label">Total Marks</label>
+          </div>
+          <div class="form__div">
+            <input type="text" class="form__input" placeholder=" " name="qp" required />
+            <label for="" class="form__label">Pass Marks</label>
+          </div>
+        </div>
+        <div class="meter orange nostripes">
+          <span id="progressBar" style="width: 0%"></span>
+        </div>
+      <input type="submit" class="form__button" id="submit"  value="Add" />
+
+    </form>
+  </div>

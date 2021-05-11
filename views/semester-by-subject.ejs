@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="../css/add-semester.css" />
+
+<body>
+  <div class="l-form">
+    <form action="/add-semester-by-subject" method="POST" class="form">
+      <h1 class="form__title">Add Semester By Subject</h1>
+      <div class="form__div">
+        <select
+          onchange="myFunction()"
+          class="form__input select-box"
+          name="semesterID"
+          id="semester_value"
+        >
+          <option value="">Select Semester</option>
+          <% data && data.map(s=>{ %>
+          <option <%= semesterId == s.semester_id && 'selected' %>  value="<%= s.semester_id %>"><%= s.semester_name %></option>
+          <% }) %>
+        </select>
+        <label class="form__label">Select Semester</label>
+      </div>
+      <div class="form__div">
+        <select class="form__input select-box" name="subjectCode" id="">
+          <% if(semBySub === null || semBySub === undefined ){ %>
+            <option value="">Select Subject</option>
+            <% }else{ %> 
+              <option >Select Subject</option>
+              <% semBySub.map(sub=>{ %>
+  
+            <option value="<%= sub.subject_code %>"><%= sub.subject_name %> <span>( <%= sub.subject_code %> ) </span>  </option>
+            <% }) %> <% } %>
+  
+
+          <label for="" class="form__label">Select Subject</label>
+        </select>
+      </div>
+
+      <input type="submit" class="form__button" value="Add" />
+    </form>
+  </div>
+</body>
+

@@ -1,0 +1,68 @@
+<h2 onclick="window.location.href='/result'">Result</h2>
+
+<% student && student.map(s=>{ %>
+<div class="" style="padding: 20px 70px">
+  <p><b style="color: #dd2257">Student ID :</b><b> <%= s.student_id %></b></p>
+  <p>
+    <b style="color: #dd2257"> Student Name : </b> <b><%= s.student_name %></b>
+  </p>
+  <p>
+    <b style="color: #dd2257"> Student Father Name : </b>
+    <b><%= s.student_fname %></b>
+  </p>
+  <p>
+    <b style="color: #dd2257"> Department : </b> <b><%= s.student_department %></b>
+  </p>
+  <p><b style="color: #dd2257"> Semester : </b> <b><%= s.semester_name %></p></b>
+  <p><b style="color: #dd2257"> session : </b> <b><%= s.session %></b></p>
+</div>
+
+<% }) %> <% if(result){ %>
+<div class="table-wrapper largeTable">
+  <table class="fl-table">
+    <thead>
+      <tr>
+        <th>Subject Name</th>
+        <th>Subject Code</th>
+        <th>Written</th>
+        <th>Viva</th>
+        <th>Assignment</th>
+        <th>Quiz</th>
+        <th>Total</th>
+        <th>Point</th>
+        <th>Grade</th>
+      </tr>
+    </thead>
+    <tbody id="tableData">
+      <%result && result.map(r=>{ %>
+      <tr>
+        <td><%=r.subject_name %></td>
+        <td class="subCode"><%=r.subject_code %></td>
+        <td hidden class="subCredit"><%=r.subject_credit %></td>
+        <td class="Wmarks"><%=r.written %></td>
+        <td class="Vmarks"><%=r.viva %></td>
+        <td class="Amarks"><%=r.assignment %></td>
+        <td class="Qmarks"><%=r.quiz %></td>
+        <td class="totalMarks"></td>
+        <td class="markPoint"></td>
+        <td class="markGrade"></td>
+      </tr>
+      <% }) %>
+    </tbody>
+
+    <tbody>
+      <tr>
+        <td colspan="7" id="resultTag"></td>
+        <td id="totalPoints"></td>
+        <td id="totalGrade"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<% }else if(result == undefined){%>
+<h2 style="color: red">Not Found</h2>
+<a href="/result"><h5 style="color: #de3163">Return</h5></a>
+<% }%>
+
+<script></script>

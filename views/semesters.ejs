@@ -1,0 +1,42 @@
+<h2>Semesters</h2>
+<div class="table-wrapper">
+  <table class="fl-table">
+    <thead>
+      <tr>
+        <th>Semester ID</th>
+        <th>Semester Name</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% semesters.map(s=>{ %>
+
+      <tr>
+        <td><%=s.semester_id %></td>
+        <td><%=s.semester_name %></td>
+        <td><input class="table_btn" type="button" value="Edit" /></td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+<h2>Semester By Subject</h2>
+<div class="table-wrapper">
+  <table class="fl-table">
+    <thead>
+      <tr>
+        <th>Semester Name</th>
+        <th>Subject Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% semiBysub.map(s=>{ %>
+
+      <tr>
+        <td><%=s.semesterName%></td>
+        <td><%=s.subjectName %></td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>

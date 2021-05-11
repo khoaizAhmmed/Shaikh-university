@@ -1,0 +1,69 @@
+<div class="info-box-container">
+  <div class="info-box" onclick="goStudents()">
+    <img height="30px" width="30px" src="/icon/student.svg" alt="" />
+    <div class="info-content">
+      <span class="header"> Students </span>
+      <% allStudents && allStudents.map(s=>{ %>
+      <span class="value"><%= s.allStudents %> </span>
+      <% }) %>
+    </div>
+  </div>
+  <div class="info-box" onclick="goSemesters()">
+    <img height="30px" width="30px" src="/icon/semester.svg" alt="" />
+    <div class="info-content">
+      <span class="header"> Semesters </span>
+      <% allSemesters && allSemesters.map(s=>{ %>
+      <span class="value"><%= s.allSemesters %> </span>
+      <% }) %>
+    </div>
+  </div>
+  <div class="info-box" onclick="goSubjects()">
+    <img height="30px" width="30px" src="/icon/book.svg" alt="" />
+    <div class="info-content">
+      <span class="header"> Subjects </span>
+      <% allSubjects && allSubjects.map(s=>{ %>
+      <span class="value"><%= s.allSubjects %> </span>
+      <% }) %>
+    </div>
+  </div>
+</div>
+
+<h2>Notice</h2>
+<div class="table-wrapper">
+  <table class="fl-table">
+    <thead>
+      <tr>
+        <th colspan="4">Subject</th>
+        <th>Date</th>
+        <th>Publish</th>
+        <th>Cancel</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(let i=1; i<=6;i++){ %>
+      <tr>
+        <td colspan="4">University Exam Revised Schedule 2021</td>
+        <td><%=i %>/05/2021</td>
+        <td>
+          <input onclick="editSubjectt()" class="table_btn"
+          style="background-color: rgb(46, 196, 0);" type="button"
+          value="Publish"
+        </td>
+        <td>
+          <input onclick="editSubjectt()" style="background-color: red;"
+          class="table_btn" type="button" value="Cancel"
+        </td>
+        <td>
+          <input
+            onclick="editSubjectt()"
+            class="table_btn"
+            type="button"
+            value="Edit"
+          />
+        </td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>

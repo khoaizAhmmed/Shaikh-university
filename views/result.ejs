@@ -1,0 +1,41 @@
+<div class="l-form">
+  <form action="/result" method="POST" class="form">
+    <h1
+      onclick="window.location.href='/'"
+      style="cursor: pointer"
+      class="form__title"
+    >
+      Result
+    </h1>
+
+    <div class="form__div">
+      <select class="form__input select-box" name="session" required id="">
+        <option value="">Select Session</option>
+        <option value="2021">2021</option>
+      </select>
+      <label for="" class="form__label">Session</label>
+    </div>
+    <div class="form__div">
+      <select class="form__input select-box" name="semesterID" required id="">
+        <option value="">Select Semester</option>
+        <% semesters && semesters.map(sem=>{ %>
+        <option value="<%=sem.semester_id %>"><%=sem.semester_name %></option>
+        <% }) %>
+      </select>
+      <label for="" class="form__label">Semester</label>
+    </div>
+
+    <div class="form__div">
+      <input
+        type="text"
+        class="form__input"
+        name="studentID"
+        required
+        placeholder=" "
+      />
+      <label for="" class="form__label">Student ID</label>
+    </div>
+
+    <input type="submit" class="form__button" value="View" />
+  </form>
+</div>

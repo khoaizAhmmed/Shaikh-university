@@ -1,0 +1,46 @@
+<h2 onclick="window.location.href='/students'">Students</h2>
+<form action="/searchstudent" method="post">
+  <div class="form__div">
+    <input type="text" class="form__input" name="studentID" required />
+    <label for="" class="form__label">Search</label>
+  </div>
+  <input class="table_btn" type="submit" value="Search" />
+</form>
+<div class="table-wrapper">
+  <table class="fl-table">
+    <thead>
+      <tr>
+        <th>Student ID</th>
+        <th>Student Name</th>
+        <th>Session</th>
+        <th>Department</th>
+        <th>Semester</th>
+        <th>Details</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% students.map(st=>{ %>
+
+      <tr>
+        <td class="studentID"><%=st.student_id %></td>
+        <td><%=st.student_name %></td>
+        <td><%=st.session %></td>
+        <td><%=st.student_department %></td>
+        <td><%=st.semester_name %></td>
+        <td><input class="table_btn" type="button" value="View" /></td>
+        <td>
+          <input
+            class="table_btn editStudent"
+            onclick="window.location.href='/editstudent/<%=st.student_id %>'"
+            type="button"
+            value="Edit"
+          />
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+
+    <tbody></tbody>
+  </table>
+</div>

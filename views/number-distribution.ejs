@@ -1,0 +1,41 @@
+<div class="l-form">
+  <form action="/insertnumber" method="POST" class="form largeForm">
+    <h1 class="form__title">Number Distribution</h1>
+
+    <div class="form__div">
+      <select  onchange="getSubject(event)" class="form__input select-box" name="semesterID" id="Semester" required>
+        <option value="">Select Semester</option>
+        <% semesters&& semesters.map(s=>{ %>
+        <option <%= semesterID == s.semester_id && 'selected' %> value="<%= s.semester_id %>"><%= s.semester_name %></option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="form__div">
+      <select  name="session" class="form__input select-box"  id="" required>
+        <option value="">Select Session</option>
+        <option value="2021">2021</option>
+      </select>
+    </div>
+    <div class="form__div">
+      <select onchange="SubjectCode(event)" class="form__input select-box" name="subjectCode" id="" required>
+        <option value="">Select Subject</option>
+        <% semBysub&& semBysub.map(s=>{ %>
+        <option value="<%= s.subject_code %>"><%= s.subject_name %></option>
+        <% }) %>
+      </select>
+    </div>
+  <% if(students){ for(let i =0 ;i<students.length ; i++){ %> 
+      <div class="inputContainer">
+        <div class="studentName"><h4> <%= students[i].student_name%>  </h4></div>
+        <input type="hidden" value="<%=  students[i].student_id %> " name="studentID">
+        <input  onchange="SubjectCode(event)" name="written"  class="Wnum" type="number" placeholder="Written" />
+        <input  onchange="SubjectCode(event)" name="viva" type="number" class="Vnum" placeholder="Viva" />
+        <input  onchange="SubjectCode(event)" name="assignment" type="number" class="Anum" placeholder="assignment" />
+        <input  onchange="SubjectCode(event)" name="quiz" type="number" class="Qnum" placeholder="Quiz" />
+      </div>
+      <% } %>  
+      <%} %>
+    
+    <input type="submit" class="form__button" value="Submit" />
+  </form>
+</div>

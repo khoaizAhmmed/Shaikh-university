@@ -1,0 +1,108 @@
+<div class="l-form">
+  <form action="/add-student" method="POST" class="form">
+    <h1 class="form__title">Add Semester</h1>
+
+    <div class="form__div">
+      <input
+        onchange="Student(event)"
+        type="text"
+        id="studentID"
+        class="form__input"
+        placeholder=" "
+        value="<%=studentID%>"
+        name="studentID"
+        required
+      />
+
+      <label for="" class="form__label">Student ID </label>
+    </div>
+    <p id="ErrorStatus"><%=StudentID %></p>
+    <div class="form__div">
+      <input
+        type="text"
+        class="form__input"
+        placeholder=" "
+        title="2021"
+        name="session"
+        required
+      />
+      <label for="" class="form__label">Academic Session</label>
+    </div>
+    <div class="form__div">
+      <input
+        type="text"
+        class="form__input"
+        placeholder=" "
+        name="name"
+        required
+      />
+      <label for="" class="form__label">Student Name</label>
+    </div>
+    <div class="form__div">
+      <input
+        type="text"
+        class="form__input"
+        placeholder=" "
+        name="fname"
+        required
+      />
+      <label for="" class="form__label">Student Father Name</label>
+    </div>
+    <div class="form__div">
+      <select class="form__input select-box" name="department" id="" required>
+        <option value="">Select Department</option>
+        <option value="CSE">CSE</option>
+      </select>
+      <label for="" class="form__label">Department</label>
+    </div>
+    <div class="form__div">
+      <select class="form__input select-box" name="semester" id="" required>
+        <option value="">Select Semester</option>
+        <% semester && semester.map(s=>{ %>
+        <option value="<%= s.semester_id %>"><%= s.semester_name %></option>
+        <% }) %>
+      </select>
+      <label for="" class="form__label">Semester</label>
+    </div>
+    <div class="">
+      Gender
+      <div class="form__div">
+        <input type="radio" value="male" name="gender" id="Male" required />
+        <label for="Male" class="">Male</label> <br />
+        <input type="radio" value="female" name="gender" id="Female" />
+        <label for="Female" class="">Female</label>
+      </div>
+    </div>
+    <div class="form__div">
+      <input
+        type="date"
+        class="form__input"
+        name="birth"
+        placeholder=" "
+        required
+      />
+      <label for="" class="form__label">Birth Date</label>
+    </div>
+    <div class="form__div">
+      <input
+        type="text"
+        class="form__input"
+        name="address"
+        placeholder=" "
+        required
+      />
+      <label for="" class="form__label">Address</label>
+    </div>
+    <div class="form__div">
+      <input
+        type="email"
+        class="form__input"
+        name="email"
+        placeholder=" "
+        required
+      />
+      <label for="" class="form__label">Email </label>
+    </div>
+    <input type="submit" class="form__button" value="Add" />
+  </form>
+</div>

@@ -1,0 +1,33 @@
+<h2 onclick="window.location.href='/subjects'">Subjects</h2>
+<div class="table-wrapper">
+  <table class="fl-table">
+    <thead>
+      <tr>
+        <th>Subject Code</th>
+        <th>Subject Name</th>
+        <th>Subject Type</th>
+        <th>Subject Credit</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% subjects.map(sub=>{ %>
+
+      <tr>
+        <td><%=sub.subject_code %></td>
+        <td><%=sub.subject_name %></td>
+        <td><%=sub.subject_type %></td>
+        <td><%=sub.subject_credit %></td>
+        <td>
+          <input
+            onclick="editSubjectt()"
+            class="table_btn"
+            type="button"
+            value="Edit"
+          />
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>

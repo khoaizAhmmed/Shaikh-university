@@ -1,0 +1,143 @@
+<div class="l-form">
+  <form action="/update-student" method="POST" class="form">
+    <h1 class="form__title">Edit Student</h1>
+    <% student&& student.map(s=>{ %>
+
+    <div class="form__div">
+      <input
+        disabled
+        onchange="Student(event)"
+        type="text"
+        id="studentID"
+        class="form__input"
+        placeholder=" "
+        value="<%=s.student_id %>"
+        name="studentID"
+        required
+      />
+      <label for="" class="form__label">Student ID </label>
+    </div>
+    <input type="hidden" name="studentID" value="<%=s.student_id %>">
+    <div class="form__div">
+      <input
+        type="text"
+        class="form__input"
+        placeholder=" "
+        title="2021"
+        name="session"
+        value="<%= s.session %> "
+        required
+      />
+      <label for="" class="form__label">Academic Session</label>
+    </div>
+    <div class="form__div">
+      <input
+        type="text"
+        class="form__input"
+        placeholder=" "
+        name="name"
+        value="<%=s.student_name %>"
+        required
+      />
+      <label for="" class="form__label">Student Name</label>
+    </div>
+    <div class="form__div">
+      <input
+        type="text"
+        class="form__input"
+        placeholder=" "
+        name="fname"
+        value="<%=s.student_fname %>"
+        required
+      />
+      <label for="" class="form__label">Student Father Name</label>
+    </div>
+    <div class="form__div">
+      <select class="form__input select-box" name="department" id="" required>
+        <option value="">Select Department</option>
+        <option selected value="CSE">CSE</option>
+      </select>
+      <label for="" class="form__label">Department</label>
+    </div>
+    <div class="form__div">
+      <select class="form__input select-box" name="semester" id="" required>
+        <option value="">Select Semester</option>
+        <% semester && semester.map(se=>{ %>
+        <option  <%=s.semester_id == se.semester_id  && 'selected' %>  value="<%= se.semester_id %>"><%= se.semester_name %></option>
+        <% }) %>
+      </select>
+      <label for="" class="form__label">Semester</label>
+    </div>
+    <div class="">
+      Gender
+      <div class="form__div">
+        <input <%=s.student_gender=='male' && 'checked' %> type="radio" value="male" name="gender" id="Male" required />
+        <label for="Male" class="">Male</label> <br />
+        <input <%=s.student_gender=='female' && 'checked' %>  type="radio" value="female" name="gender" id="Female" />
+        <label for="Female" class="">Female</label>
+      </div>
+    </div>
+    <div class="form__div">
+      <input
+        type="date"
+        id ='birthDate'
+        class="form__input"
+        name="birth"
+        placeholder=" "
+        value=""
+        required
+      />
+      <label for="" class="form__label">Birth Date</label>
+    </div>
+    <div class="form__div">
+      <input
+        type="text"
+        class="form__input"
+        name="address"
+        placeholder=" "
+        value="<%=s.student_address %>"
+        required
+      />
+      <label for="" class="form__label">Address</label>
+    </div>
+    <div class="form__div">
+      <input
+        type="email"
+        class="form__input"
+        name="email"
+        placeholder=" "
+        value="<%=s.student_email %>"
+        required
+      />
+      <label for="" class="form__label">Email </label>
+    </div>
+    <input type="submit" class="form__button" value="Update" />
+    <% }) %>
+  </form>
+</div>
+
+<script>
+  let bir
+  let student = '<%-JSON.stringify(student) %>'
+  let std = JSON.parse(student)
+  std.map(s=>{
+    bir = s.student_birth
+    
+  })
+
+  function pad2(n) {
+  return (n < 10 ? '0' : '') + n;
+}
+
+var date = new Date(bir);
+
+var month = pad2(date.getMonth()+1);//months (0-11)
+var day = pad2(date.getDate());//day (1-31)
+var year= date.getFullYear();
+
+var formattedDate =  year+"-"+month+"-"+day;
+
+
+let birthdate= document.getElementById('birthDate').defaultValue  =  formattedDate
+
+</script>

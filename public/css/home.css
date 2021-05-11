@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700&display=swap");
+:root {
+  /*===== Colores =====*/
+  --first-color: #de3163;
+  --input-color: #80868b;
+  --border-color: #dadce0;
+}
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: auto;
+  font-family: "Montserrat", sans-serif;
+  background: url("https://i.imgur.com/2rjUD6b.jpg") no-repeat fixed;
+  background-position: center;
+  background-size: cover;
+}
+h1 {
+  text-align: center;
+  margin: 100px;
+  font-size: 60px;
+  text-transform: uppercase;
+  border: 10px double #dadce0;
+  color: #f53269;
+  text-shadow: 6px 3px 8px black;
+  background-color: rgba(0, 0, 0, 0.253);
+}
+
+.form__button {
+  margin-left: 40px;
+
+  padding: 0.75rem 2rem;
+  outline: none;
+
+  border: none;
+  background-color: var(--first-color);
+  color: #fff;
+  font-size: 30px;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.form__button:hover {
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.15);
+}
+.action {
+  text-align: center;
+  margin-top: -80px;
+}
+.img {
+  text-align: center;
+  margin-top: -40px;
+}
+.img img {
+  background-color: rgba(0, 0, 0, 0.452);
+}
+.hor {
+  border-right: 10px solid var(--border-color);
+}

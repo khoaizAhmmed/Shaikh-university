@@ -1,0 +1,34 @@
+<div class="l-form">
+  <form action="/add-subject" method="POST" class="form">
+    <h1 class="form__title">Add Subject</h1>
+
+    <div class="form__div">
+      <input type="text" class="form__input" name="code" placeholder=" " />
+      <label for="" class="form__label">Subject Code</label>
+    </div>
+
+    <div class="form__div">
+      <input type="text" class="form__input" name="name" placeholder=" " />
+      <label for="" class="form__label">Subject Name</label>
+    </div>
+    <div class="form__div">
+      <select class="form__input select-box" name="type" id="">
+        <option value="">Select Type</option>
+        <option value="Theory">Theory</option>
+        <option value="Practical">Practical</option>
+      </select>
+      <label for="" class="form__label">Select Type</label>
+    </div>
+    <div class="">
+      Credit
+      <div class="form__div">
+        <input type="radio" name="credit" value="3" id="3" />
+        <label for="3" class="">3</label> <br />
+        <input type="radio" name="credit" value="1.5" id="1.5" />
+        <label for="1.5" class="">1.5</label>
+      </div>
+    </div>
+
+    <input type="submit" class="form__button" value="Add" />
+  </form>
+</div>

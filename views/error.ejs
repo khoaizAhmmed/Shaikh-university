@@ -1,0 +1,98 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Khand:wght@500&display=swap");
+  .wrapperAlert {
+    width: 500px;
+    height: 500px;
+    margin: 80px 160px;
+    overflow: hidden;
+    border-radius: 12px;
+    border: thin solid #ddd;
+    text-align: center;
+  }
+
+  .topHalf {
+    width: 100%;
+    color: white;
+    overflow: hidden;
+    min-height: 250px;
+    position: relative;
+    padding: 40px 0;
+    background: rgb(0, 0, 0);
+    background: -webkit-linear-gradient(45deg, #980101, #eba0a0);
+  }
+
+  .topHalf p {
+    margin-bottom: 30px;
+  }
+  svg {
+    fill: white;
+  }
+  .topHalf h1 {
+    font-size: 2.25rem;
+    display: block;
+    font-weight: 500;
+    letter-spacing: 0.15rem;
+    text-shadow: 0 2px rgba(128, 128, 128, 0.6);
+  }
+
+  /* Original Author of Bubbles Animation -- https://codepen.io/Lewitje/pen/BNNJjo */
+
+  .bottomHalf {
+    align-items: center;
+    padding: 35px;
+  }
+  .bottomHalf p {
+    font-weight: 500;
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+  }
+
+  button {
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 12px;
+    padding: 10px 18px;
+    background-color: #de3163;
+    text-shadow: 0 1px rgba(128, 128, 128, 0.75);
+  }
+  button:hover {
+    background-color: #e74f7a;
+  }
+  @media (max-width: 48em) {
+    .wrapperAlert {
+      margin: 0;
+    }
+  }
+</style>
+<div class="wrapperAlert">
+  <div class="contentAlert">
+    <div class="topHalf">
+      <p>
+        <svg
+          viewBox="0 0 512 512"
+          width="100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m256 0c-141.164062 0-256 114.835938-256 256s114.835938 256 256 256 256-114.835938 256-256-114.835938-256-256-256zm0 0"
+            fill="#f44336"
+          />
+          <path
+            d="m350.273438 320.105469c8.339843 8.34375 8.339843 21.824219 0 30.167969-4.160157 4.160156-9.621094 6.25-15.085938 6.25-5.460938 0-10.921875-2.089844-15.082031-6.25l-64.105469-64.109376-64.105469 64.109376c-4.160156 4.160156-9.621093 6.25-15.082031 6.25-5.464844 0-10.925781-2.089844-15.085938-6.25-8.339843-8.34375-8.339843-21.824219 0-30.167969l64.109376-64.105469-64.109376-64.105469c-8.339843-8.34375-8.339843-21.824219 0-30.167969 8.34375-8.339843 21.824219-8.339843 30.167969 0l64.105469 64.109376 64.105469-64.109376c8.34375-8.339843 21.824219-8.339843 30.167969 0 8.339843 8.34375 8.339843 21.824219 0 30.167969l-64.109376 64.105469zm0 0"
+            fill="#fafafa"
+          />
+        </svg>
+      </p>
+      <h1>Error</h1>
+    </div>
+
+    <div class="bottomHalf">
+      <p>oh no!,Something Error go back home</p>
+
+      <button onclick="window.location.href='/dashboard'" id="alertMO">
+        Moving On
+      </button>
+    </div>
+  </div>
+</div>
